@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Banner Rotation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .banner-container {
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    #daily-banner {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner-container">
+    <img id="daily-banner" alt="Banner of the day">
+  </div>
+  
+  <script type="module">
+    // Array of 7 placeholder banner images, one for each day (Sunday to Saturday)
+    const banners = [
+      "https://via.placeholder.com/1200x400?text=Sunday+Banner",   // Sunday
+      "https://via.placeholder.com/1200x400?text=Monday+Banner",   // Monday
+      "https://via.placeholder.com/1200x400?text=Tuesday+Banner",  // Tuesday
+      "https://via.placeholder.com/1200x400?text=Wednesday+Banner",// Wednesday
+      "https://via.placeholder.com/1200x400?text=Thursday+Banner", // Thursday
+      "https://via.placeholder.com/1200x400?text=Friday+Banner",   // Friday
+      "https://via.placeholder.com/1200x400?text=Saturday+Banner"  // Saturday
+    ];
+
+    // Get the current day of the week in UTC (0 = Sunday, 6 = Saturday)
+    const today = new Date().getUTCDay();
+
+    // Select the banner image element
+    const bannerElement = document.getElementById('daily-banner');
+
+    // Set the source of the banner to the corresponding day
+    bannerElement.src = banners[today];
+  </script>
+</body>
+</html>
